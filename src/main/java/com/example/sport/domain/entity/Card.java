@@ -8,6 +8,4 @@ public class Card {
     private String cPassword;
     private String phone;
     private DateFormat date;
-
-
 }
