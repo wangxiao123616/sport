@@ -3,7 +3,7 @@ package com.example.sport.domain.entity;
 public class SportPackage {
     private Long id;
     private String pName;
-    private int price;
+    private Integer price;
     private String describe;
-    private int count;
+    private Integer count;
 }

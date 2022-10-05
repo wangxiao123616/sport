@@ -1,11 +1,14 @@
 package com.example.sport.domain.entity;
 
-import java.text.DateFormat;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+
+@Data
 public class Card {
     private Long id;
     private int money;
     private String cPassword;
     private String phone;
-    private DateFormat date;
+    private LocalDateTime date;
 }

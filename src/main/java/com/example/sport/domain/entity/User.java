@@ -4,9 +4,9 @@ public class User {
     private Long id;
     private String account;
     private String uName;
-    private int gender;
+    private Integer gender;
     private String name;
-    private int age;
+    private Integer age;
     private String phone;
     private String headImg;
     private String authority;

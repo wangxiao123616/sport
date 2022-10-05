@@ -1,11 +1,11 @@
 package com.example.sport.domain.entity;
 
-import java.text.DateFormat;
+import java.time.LocalDateTime;
 
 public class Notice {
     private Long id;
     private String nTitle;
-    private DateFormat date;
+    private LocalDateTime date;
     private String name;
     private String describe;
 }

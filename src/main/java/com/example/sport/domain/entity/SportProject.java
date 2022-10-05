@@ -4,7 +4,7 @@ public class SportProject {
     private Long id;
     private String pName;
     private Long cId;
-    private int price;
+    private Integer price;
     private String describe;
-    private int count;
+    private Integer count;
 }

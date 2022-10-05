@@ -3,9 +3,9 @@
 <!--对应模板文件，namespace对应javaMapper文件-->
 <mapper namespace="com.example.sport.mapper.CardMapper">
     <!--对类文件，id下方引用，type对应entity-->
-    <resultMap id="card" type="Card">
+    <resultMap id="card" type="com.example.sport.domain.entity.Card">
         <!--实体类与数据库字段对应-->
-       <id column="id" property="id"/>
+        <id column="id" property="id"/>
         <result column="money" property="money"/>
         <result column="c_password" property="cPassword"/>
         <result column="phone" property="phone"/>
