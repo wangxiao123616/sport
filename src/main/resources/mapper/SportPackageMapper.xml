@@ -12,6 +12,4 @@
         <result column="describe" property="describe"/>
         <result column="count" property="count"/>
     </resultMap>
-
-
 </mapper>

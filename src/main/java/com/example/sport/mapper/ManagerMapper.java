@@ -5,4 +5,5 @@ import com.example.sport.domain.entity.Manager;
 import org.springframework.stereotype.Repository;
 
 public interface ManagerMapper  extends BaseMapper<Manager> {
+
 }

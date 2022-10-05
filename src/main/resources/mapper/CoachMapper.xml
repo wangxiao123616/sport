@@ -4,7 +4,6 @@
 <mapper namespace="com.example.sport.mapper.CoachMapper">
     <!--对类文件，id下方引用，type对应entity-->
     <resultMap id="Coach" type="com.example.sport.domain.entity.Coach" >
-
         <id column="id" property="id"/>
         <result column="account" property="account"/>
         <result column="c_name" property="cName"/>
