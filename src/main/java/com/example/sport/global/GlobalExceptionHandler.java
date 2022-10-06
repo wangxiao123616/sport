@@ -1,4 +1,4 @@
-package com.example.sport.globle;
+package com.example.sport.global;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @author nmy
- * @title: GlobleExceptionHandler
+ * @title: GlobalExceptionHandler
  * @date 2022-10-04 23:07
  */
 @RestControllerAdvice
-public class GlobleExceptionHandler {
+public class GlobalExceptionHandler {
 
-    @ExceptionHandler(GlobleException.class)
+    @ExceptionHandler(GlobalException.class)
     @ResponseBody
-    public IResponse handleException(GlobleException e) {
+    public IResponse handleException(GlobalException e) {
         IResponse response = new IResponse();
         response.setCode(e.getCode());
         response.setMsg(e.getMessage());

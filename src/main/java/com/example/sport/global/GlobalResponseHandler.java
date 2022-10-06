@@ -1,4 +1,4 @@
-package com.example.sport.globle;
+package com.example.sport.global;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.core.MethodParameter;
@@ -12,11 +12,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
  * @author nmy
- * @title: GlobleResponseHandler
+ * @title: GlobalResponseHandler
  * @date 2022-10-04 23:18
  */
 @RestControllerAdvice(annotations = RestController.class)
-public class GlobleResponseHandler implements ResponseBodyAdvice<Object> {
+public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
         return true;

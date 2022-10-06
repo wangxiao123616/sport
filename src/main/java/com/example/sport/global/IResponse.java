@@ -1,4 +1,4 @@
-package com.example.sport.globle;
+package com.example.sport.global;
 
 /**
  * @author nmy

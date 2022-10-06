@@ -1,13 +1,13 @@
-package com.example.sport.globle;
+package com.example.sport.global;
 
 import java.io.Serializable;
 
 /**
  * @author nmy
- * @title: GlobleException
+ * @title: GlobalException
  * @date 2022-10-04 22:42
  */
-public class GlobleException extends RuntimeException implements Serializable {
+public class GlobalException extends RuntimeException implements Serializable {
 
     private int code;
 
@@ -19,12 +19,12 @@ public class GlobleException extends RuntimeException implements Serializable {
         this.code = code;
     }
 
-    public GlobleException(int code, String message) {
+    public GlobalException(int code, String message) {
         super(message);
         this.code = code;
     }
 
-    public GlobleException(ResultCode result) {
+    public GlobalException(ResultCode result) {
         super(result.msg());
         this.code = result.code();
     }
