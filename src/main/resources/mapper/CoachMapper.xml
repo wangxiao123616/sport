@@ -11,7 +11,7 @@
         <result column="name" property="name"/>
         <result column="age" property="age"/>
         <result column="phone" property="phone"/>
-        <result column="headImg" property="headImg"/>
+        <result column="head_img" property="headImg"/>
         <result column="authority" property="authority"/>
         <result column="wage" property="wage"/>
         <result column="hobby" property="hobby"/>
@@ -25,7 +25,7 @@
                co.name,
                co.age,
                co.phone,
-               co.headImg,
+               co.head_img,
                co.authority,
                co.wage,
                co.hobby
@@ -39,49 +39,49 @@
                          , name
                          , age
                          , phone
-                         , headImg
+                         , head_img
                          , authority
                          , wage
                          , hobby)
-            value (account, cName, gender, name, age, phone, headImg, authority, wage, hobby)
+            value (#{account}, #{cName}, #{gender}, #{name}, #{age}, #{phone}, #{headImg}, #{authority}, #{wage}, #{hobby})
     </insert>
     <delete id="deleteOne">
         delete from coach co
         <where>
-            co.account = account
+            co.account = #{account}
         </where>
     </delete>
     <select id="getCoachs" resultType="com.example.sport.domain.entity.Coach" resultMap="coach">
         <include refid="coachVo"></include>
         <where>
-            <if test="id != 0">
-                and co.id = id
+            <if test="id != null">
+                and co.id = #{id}
             </if>
-            <if test="account != -1">
-                and co.account = account
+            <if test="account != null and account != ''">
+                and co.account = #{account}
             </if>
-            <if test="cName != null">
-                and co.c_name = cName
+            <if test="cName != null and cName != ''">
+                and co.c_name = #{cName}
             </if>
             <if test="gender != null">
-                and co.gender = gender
+                and co.gender = #{gender}
             </if>
-            <if test="name != null">
-                and co.name = name
+            <if test="name != null and name != ''">
+                and co.name =#{name}
             </if>
             <if test="age != null">
-                and co.age = age
+                and co.age = #{age}
             </if>
-            <if test="phone != null">
-                and c.phone = phone
+            <if test="phone != null and phone != ''">
+                and co.phone = #{phone}
             </if>
-            <if test="authority != null">
-                and co.authority = authority
+            <if test="authority != null and authority != ''">
+                and co.authority = #{authority}
             </if>
             <if test="wage != null">
-                and co.wage = wage
+                and co.wage = #{wage}
             </if>
-            <if test="hobby != null">
+            <if test="hobby != null and hobby != ''">
                 and co.hobby like concat('%', #{hobby}, '%')
             </if>
         </where>
@@ -89,7 +89,7 @@
     <select id="getCoach" resultType="com.example.sport.domain.entity.Coach" resultMap="coach">
         <include refid="coachVo"></include>
         <where>
-            co.account = account
+            co.account = #{account}
         </where>
     </select>
 </mapper>

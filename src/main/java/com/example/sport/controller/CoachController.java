@@ -25,7 +25,7 @@ public class CoachController {
     }
 
     @PostMapping("/add")
-    public boolean add(@RequestBody Coach coach) {
+    public boolean add(Coach coach) {
         return coachService.add(coach);
     }
 

@@ -13,6 +13,6 @@ public interface CardMapper extends BaseMapper<Card> {
 
     int addOne(Card card);
 
-    Object deleteOne(String phone);
+    int deleteOne(String phone);
 
 }

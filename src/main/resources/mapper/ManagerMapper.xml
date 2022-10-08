@@ -7,16 +7,86 @@
         <!--实体类与数据库字段对应-->
         <id column="id" property="id"/>
         <result column="account" property="account"/>
-        <result column="c_name" property="cName"/>
+        <result column="m_name" property="mName"/>
         <result column="gender" property="gender"/>
         <result column="name" property="name"/>
-        <result column="age"  property="age"/>
+        <result column="age" property="age"/>
         <result column="phone" property="phone"/>
-        <result column="headImg" property="headImg"/>
+        <result column="head_img" property="headImg"/>
         <result column="authority" property="authority"/>
         <result column="wage" property="wage"/>
-        <result column="hobby" property="hobby"/>
     </resultMap>
+
+    <sql id="managerVo">
+        select m.id,
+               m.account,
+               m.m_name,
+               m.gender,
+               m.name,
+               m.age,
+               m.phone,
+               m.head_img,
+               m.authority,
+               m.wage
+        from manager m
+    </sql>
+
+    <insert id="addOne">
+        insert into manager( account
+                         , m_name
+                         , gender
+                         , name
+                         , age
+                         , phone
+                         , head_img
+                         , authority
+                         , wage)
+            value (#{account}, #{mName}, #{gender}, #{name}, #{age}, #{phone}, #{headImg}, #{authority}, #{wage})
+    </insert>
+    <delete id="deleteOne">
+        delete from manager m
+        <where>
+            m.account = #{account}
+        </where>
+    </delete>
+    <select id="getManagers" resultType="com.example.sport.domain.entity.Manager">
+        <include refid="managerVo"></include>
+        <where>
+            <if test="id != null">
+                and m.id = #{id}
+            </if>
+            <if test="account != null and account != ''">
+                and m.account = #{account}
+            </if>
+            <if test="mName != null and mName != ''">
+                and m.m_name = #{mName}
+            </if>
+            <if test="gender != null">
+                and m.gender = #{gender}
+            </if>
+            <if test="name != null and name != ''">
+                and m.name = #{name}
+            </if>
+            <if test="age != null">
+                and m.age = #{age}
+            </if>
+            <if test="phone != null and phone != ''">
+                and m.phone = #{phone}
+            </if>
+            <if test="authority != null and authority != ''">
+                and m.authority = #{authority}
+            </if>
+            <if test="wage != null">
+                and m.wage = #{wage}
+            </if>
+        </where>
+    </select>
+    <select id="getManager" resultType="com.example.sport.domain.entity.Manager">
+        <include refid="managerVo"></include>
+        <where>
+            m.account = #{account}
+        </where>
+    </select>
 
 
 </mapper>

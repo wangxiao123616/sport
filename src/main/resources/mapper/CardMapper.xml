@@ -21,39 +21,39 @@
     <select id="getCards" resultType="com.example.sport.domain.entity.Card" resultMap="card">
         <include refid="cardVo"/>
         <where>
-            <if test="id != 0">
-                and c.id = id
+            <if test="id != null">
+                and c.id = #{id}
             </if>
-            <if test="money != -1">
-                and c.money <![CDATA[>=]]> money and c.money <![CDATA[<=]]> money
+            <if test="money != null">
+                and c.money <![CDATA[>=]]> #{money} and c.money <![CDATA[<=]]> #{money}
             </if>
-            <if test="cPassword != null">
-                and c.c_password = cPassword
+            <if test="cPassword != null and cPassword != ''">
+                and c.c_password = #{cPassword}
             </if>
-            <if test="phone != null">
-                and c.phone = phone
+            <if test="phone != null and phone != ''">
+                and c.phone = #{phone}
             </if>
             <if test="date != null">
-                and c.date <![CDATA[>=]]> date and c.date <![CDATA[<=]]> date
+                and c.date <![CDATA[>=]]> #{date} and c.date <![CDATA[<=]]> #{date}
             </if>
         </where>
     </select>
     <select id="getCard" resultType="com.example.sport.domain.entity.Card">
         <include refid="cardVo"></include>
         <where>
-            c.phone = phone
+            c.phone = #{phone}
         </where>
     </select>
 
     <insert id="addOne">
         insert into card(money, c_password, phone, date)
-            value (money,cPassword,phone,date)
+            value (#{money},#{cPassword},#{phone},#{date})
     </insert>
 
     <delete id="deleteOne">
         delete from card c
         <where>
-            c.phone = phone
+            c.phone = #{phone}
         </where>
     </delete>
 </mapper>

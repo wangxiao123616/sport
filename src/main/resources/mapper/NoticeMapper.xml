@@ -9,8 +9,55 @@
         <result column="n_title" property="nTitle"/>
         <result column="date" property="date"/>
         <result column="name" property="name"/>
-        <result column="describe" property="describe"/>
+        <result column="m_describe" property="describe"/>
     </resultMap>
 
+    <sql id="noticeVo">
+        select n.id,
+               n.n_title,
+               n.date,
+               n.name,
+               n.m_describe
+        from notice n
+    </sql>
 
+    <insert id="addOne">
+        insert into notice( n_title
+                          , date
+                          , name
+                          , m_describe)
+            value (#{nTitle}, #{date}, #{name}, #{describe})
+    </insert>
+    <delete id="deleteOne">
+        delete from notice n
+        <where>
+            n.id = #{id}
+        </where>
+    </delete>
+    <select id="getNotices" resultType="com.example.sport.domain.entity.Notice" resultMap="notice">
+        <include refid="noticeVo"></include>
+        <where>
+            <if test="id != null">
+                and n.id = #{id}
+            </if>
+            <if test="nTitle != null and nTitle != ''">
+                and n.n_Title = #{nTitle}
+            </if>
+            <if test="date != null">
+                and n.date = #{date}
+            </if>
+            <if test="name != null and name != ''">
+                and n.name = #{name}
+            </if>
+            <if test="describe != null and describe != ''">
+                and n.m_describe = #{describe}
+            </if>
+        </where>
+    </select>
+    <select id="getNotice" resultType="com.example.sport.domain.entity.Notice" resultMap="notice">
+        <include refid="noticeVo"></include>
+        <where>
+            n.id = #{id}
+        </where>
+    </select>
 </mapper>

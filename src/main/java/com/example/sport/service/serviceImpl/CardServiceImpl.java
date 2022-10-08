@@ -17,8 +17,7 @@ public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements Ca
 
     @Override
     public List<Card> getAll(Card card) {
-        cardMapper.getCards(card);
-        return null;
+        return cardMapper.getCards(card);
     }
 
     @Override
@@ -28,13 +27,11 @@ public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements Ca
 
     @Override
     public boolean add(Card card) {
-        cardMapper.addOne(card);
-        return true;
+        return cardMapper.addOne(card) >= 1;
     }
 
     @Override
     public boolean delete(String account) {
-        cardMapper.deleteOne(account);
-        return true;
+        return cardMapper.deleteOne(account) >= 1;
     }
 }

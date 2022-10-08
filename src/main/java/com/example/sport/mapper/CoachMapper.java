@@ -14,6 +14,6 @@ public interface CoachMapper extends BaseMapper<Coach> {
 
     int addOne(Coach coach);
 
-    Object deleteOne(String account);
+    int deleteOne(String account);
 
 }

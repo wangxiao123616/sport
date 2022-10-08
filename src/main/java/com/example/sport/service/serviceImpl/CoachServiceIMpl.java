@@ -27,13 +27,11 @@ public class CoachServiceIMpl extends ServiceImpl<CoachMapper, Coach> implements
 
     @Override
     public boolean add(Coach coach) {
-        coachMapper.addOne(coach);
-        return true;
+        return coachMapper.addOne(coach) >= 1;
     }
 
     @Override
     public boolean delete(String account) {
-        coachMapper.deleteOne(account);
-        return true;
+        return coachMapper.deleteOne(account) >= 1;
     }
 }
