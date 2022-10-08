@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class Card {
     private Long id;
-    private int money;
+    private Integer money;
     private String cPassword;
     private String phone;
     private LocalDateTime date;

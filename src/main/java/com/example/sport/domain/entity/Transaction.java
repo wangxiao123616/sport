@@ -1,7 +1,9 @@
 package com.example.sport.domain.entity;
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public class Transaction {
     private Long id;
     private String describe;

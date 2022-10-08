@@ -3,21 +3,93 @@
 <!--对应模板文件，namespace对应javaMapper文件-->
 <mapper namespace="com.example.sport.mapper.CoachMapper">
     <!--对类文件，id下方引用，type对应entity-->
-    <resultMap id="Coach" type="com.example.sport.domain.entity.Coach" >
-
+    <resultMap id="coach" type="com.example.sport.domain.entity.Coach">
         <id column="id" property="id"/>
         <result column="account" property="account"/>
         <result column="c_name" property="cName"/>
         <result column="gender" property="gender"/>
         <result column="name" property="name"/>
-        <result column="age"  property="age"/>
+        <result column="age" property="age"/>
         <result column="phone" property="phone"/>
         <result column="headImg" property="headImg"/>
         <result column="authority" property="authority"/>
         <result column="wage" property="wage"/>
         <result column="hobby" property="hobby"/>
-
     </resultMap>
 
+    <sql id="coachVo">
+        select co.id,
+               co.account,
+               co.c_name,
+               co.gender,
+               co.name,
+               co.age,
+               co.phone,
+               co.headImg,
+               co.authority,
+               co.wage,
+               co.hobby
+        from coach co
+    </sql>
 
+    <insert id="addOne">
+        insert into coach( account
+                         , c_name
+                         , gender
+                         , name
+                         , age
+                         , phone
+                         , headImg
+                         , authority
+                         , wage
+                         , hobby)
+            value (account, cName, gender, name, age, phone, headImg, authority, wage, hobby)
+    </insert>
+    <delete id="deleteOne">
+        delete from coach co
+        <where>
+            co.account = account
+        </where>
+    </delete>
+    <select id="getCoachs" resultType="com.example.sport.domain.entity.Coach" resultMap="coach">
+        <include refid="coachVo"></include>
+        <where>
+            <if test="id != 0">
+                and co.id = id
+            </if>
+            <if test="account != -1">
+                and co.account = account
+            </if>
+            <if test="cName != null">
+                and co.c_name = cName
+            </if>
+            <if test="gender != null">
+                and co.gender = gender
+            </if>
+            <if test="name != null">
+                and co.name = name
+            </if>
+            <if test="age != null">
+                and co.age = age
+            </if>
+            <if test="phone != null">
+                and c.phone = phone
+            </if>
+            <if test="authority != null">
+                and co.authority = authority
+            </if>
+            <if test="wage != null">
+                and co.wage = wage
+            </if>
+            <if test="hobby != null">
+                and co.hobby like concat('%', #{hobby}, '%')
+            </if>
+        </where>
+    </select>
+    <select id="getCoach" resultType="com.example.sport.domain.entity.Coach" resultMap="coach">
+        <include refid="coachVo"></include>
+        <where>
+            co.account = account
+        </where>
+    </select>
 </mapper>

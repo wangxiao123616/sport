@@ -1,5 +1,8 @@
 package com.example.sport.domain.entity;
 
+import lombok.Data;
+
+@Data
 public class Manager {
     private Long id;
     private String account;
